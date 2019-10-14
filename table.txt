@@ -1,0 +1,23 @@
+CREATE DATABASE SinhVien
+go
+use SinhVien
+go
+CREATE TABLE Student(
+  id      int IDENTITY(1,1) primary key,
+  name        nvarchar(15),
+  age       int,
+ )
+ INSERT INTO Student(name,age) VALUES( N'Le Van A', 20)
+ go
+CREATE TABLE Class(
+  id      int IDENTITY(1,1) primary key,
+  class_name     text,    
+  )
+  INSERT INTO Class(class_name) VALUES( N'Java101' )
+  go
+ CREATE TABLE DayOff(
+  id      int IDENTITY(1,1)  primary key,
+  student_id int FOREIGN KEY REFERENCES Student(id),
+  day_off Date,
+  )
+   INSERT INTO DayOff(day_off) VALUES( '10/10/2019')
